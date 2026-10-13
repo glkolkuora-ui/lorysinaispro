@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser'
 import { WebSocketServer } from 'ws'
 import { FEATURE_FLAGS } from './engine/feature-flags'
 import { tApp } from './engine/locale'
-import { pingDb } from './engine/db'
+import { ensureSchema, pingDb } from './engine/db'
 import {
   checkUpdate,
   clearNotifications,
@@ -579,6 +579,8 @@ wss.on('connection', (ws, req) => {
   }
 })
 
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`[genesis] listening on :${PORT}`)
+void ensureSchema().finally(() => {
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`[genesis] listening on :${PORT}`)
+  })
 })
