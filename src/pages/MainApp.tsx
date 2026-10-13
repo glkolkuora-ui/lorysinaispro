@@ -43,9 +43,9 @@ function IconLogout({ className }: { className?: string }) {
 
 function SidebarLogoMark() {
   return (
-    <div className="sidebar-logo-mark" title="Lory Pro">
+    <div className="sidebar-logo-mark" title="Lury Pro">
       <span className="sidebar-brand">
-        <span className="sidebar-brand-name">Lory</span>
+        <span className="sidebar-brand-name">Lury</span>
         <span className="sidebar-brand-product">Pro</span>
       </span>
     </div>
